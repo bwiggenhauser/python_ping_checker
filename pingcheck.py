@@ -3,7 +3,7 @@ import time
 import subprocess
 
 # Settings before starting the script
-minutesToCheck = 0.5
+minutesToCheck = 5
 timeToSleep = 5
 hostname = "google.com"
 
