@@ -1,11 +1,11 @@
 import os
 import time
 import subprocess
-from statistics import mean
 
 # Settings before starting the script
-minutesToCheck = 5
+minutesToCheck = 0.5
 timeToSleep = 5
+hostname = "google.com"
 
 # Get current time (to stop script later)
 currentTime = time.time()
@@ -13,7 +13,6 @@ endTime = currentTime + (minutesToCheck * 60)
 
 # Pinging google.com and returning response
 def check_ping():
-    hostname = "google.com"
     output = subprocess.check_output("ping -n 1 " + hostname, shell=True)
     return output
 
@@ -35,5 +34,5 @@ while (time.time() < endTime):
 # Result printing to console
 print("--------------------")
 print("Results:")
-print("Max. Ping: " + str(max(pings)))
-print("Average Ping: " + str(mean(pings)))
+print("-> Max. Ping: " + str(max(pings)))
+print("-> Average Ping: " + str(sum(pings)/len(pings)))
